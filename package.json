@@ -1,0 +1,24 @@
+{
+  "name": "@inovatechbg/either",
+  "version": "1.0.0",
+  "main": "./dist/index.js",
+  "scripts": {
+    "test": "vitest run"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/InovaTech-BG/either.git"
+  },
+  "keywords": [
+    "either",
+    "pattern",
+    "typescript"
+  ],
+  "author": "Brennon Gabriel de Oliveira",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/InovaTech-BG/either/issues"
+  },
+  "homepage": "https://github.com/InovaTech-BG/either#readme",
+  "description": ""
+}
