@@ -1,9 +1,14 @@
 {
   "name": "@inovatechbg/either",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "./dist/index.js",
+	"module": "./dist/index.mjs",
+	"types": "./dist/index.d.ts",
+  "files": ["dist", "./README.md"],
   "scripts": {
-    "test": "vitest run"
+    "build": "tsup",
+    "test": "vitest run",
+    "test:watch": "vitest"
   },
   "repository": {
     "type": "git",
@@ -14,6 +19,9 @@
     "pattern",
     "typescript"
   ],
+  "publishConfig": {
+		"access": "public"
+	},
   "author": "Brennon Gabriel de Oliveira",
   "license": "MIT",
   "bugs": {
@@ -27,5 +35,6 @@
     "tsup": "^8.3.5",
     "typescript": "^5.7.3",
     "vitest": "^2.1.8"
-  }
+  },
+  "publisher": "InovaTech BG"
 }

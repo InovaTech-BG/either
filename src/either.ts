@@ -40,16 +40,16 @@ export class Right<L, R> {
   }
 }
 
-export type TEither<L, R> = Left<L, R> | Right<L, R>;
-export const left = <L, R>(value: L): TEither<L, R> => new Left(value);
-export const right = <L, R>(value: R): TEither<L, R> => new Right(value);
+export type Either<L, R> = Left<L, R> | Right<L, R>;
+export const left = <L, R>(value: L): Either<L, R> => new Left(value);
+export const right = <L, R>(value: R): Either<L, R> => new Right(value);
 
-abstract class Either<Params, L, R> {
-  protected left(value: L): TEither<L, R> {
+abstract class BaseEither<Params, L, R> {
+  protected left(value: L): Either<L, R> {
     return left(value);
   }
 
-  protected right(value: R): TEither<L, R> {
+  protected right(value: R): Either<L, R> {
     return right(value);
   }
 
@@ -57,10 +57,10 @@ abstract class Either<Params, L, R> {
   // public abstract executeAsync(params: Params): Promise<TEither<L, R>>;
 }
 
-export abstract class EitherAsync<Params, L, R> extends Either<Params, L, R> {
-  public abstract execute(params: Params): Promise<TEither<L, R>>;
+export abstract class EitherAsync<Params, L, R> extends BaseEither<Params, L, R> {
+  public abstract execute(params: Params): Promise<Either<L, R>>;
 }
 
-export abstract class EitherSync<Params, L, R> extends Either<Params, L, R> {
-  public abstract execute(params: Params): TEither<L, R>;
+export abstract class EitherSync<Params, L, R> extends BaseEither<Params, L, R> {
+  public abstract execute(params: Params): Either<L, R>;
 }

@@ -1,4 +1,4 @@
-import { EitherAsync, EitherSync, left, right, TEither } from "./either";
+import { EitherAsync, EitherSync, left, right, Either } from "./either";
 
 class InvalidNumberError extends Error {
 	constructor() {
@@ -14,7 +14,7 @@ class NaNError extends Error {
 
 function DoSomething(
 	params: number,
-): TEither<InvalidNumberError | NaNError, string> {
+): Either<InvalidNumberError | NaNError, string> {
 	if (Number.isNaN(params)) {
 		return left(new NaNError());
 	}
@@ -33,7 +33,7 @@ class DoSomethingSyncClass extends EitherSync<
 > {
 	public execute(
 		params: number,
-	): TEither<InvalidNumberError | NaNError, string> {
+	): Either<InvalidNumberError | NaNError, string> {
 		if (Number.isNaN(params)) {
 			return this.left(new NaNError());
 		}
@@ -53,7 +53,7 @@ class DoSomethingAsyncClass extends EitherAsync<
 > {
   public async execute(
     params: number,
-  ): Promise<TEither<InvalidNumberError | NaNError, string>> {
+  ): Promise<Either<InvalidNumberError | NaNError, string>> {
     if (Number.isNaN(params)) {
       return this.left(new NaNError());
     }
